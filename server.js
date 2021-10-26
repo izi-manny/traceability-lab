@@ -11,3 +11,12 @@ let rollbar = new Rollbar({
 const path = require('path')
 
 app.use(express.json())
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+    // rollbar.info('html file served successfully')
+})
+
+app.get('/style', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/styles.css'))
+})
