@@ -15,6 +15,11 @@ app.use(express.json())
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
     rollbar.info('html file served successfully')
+    try {
+        nonExistentFunction()
+    } catch (error) {
+        rollbar.log(error)
+    }
 })
 
 app.get('/style', (req, res) => {
