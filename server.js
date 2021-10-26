@@ -20,3 +20,7 @@ app.get('/', (req, res) => {
 app.get('/style', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/styles.css'))
 })
+
+const port = process.env.PORT || 5000
+
+app.listen(port, () => console.log(`Jump to hyperspace via port ${port}`))
